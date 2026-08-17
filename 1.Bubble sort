@@ -1,42 +1,47 @@
-#include <iostream>
-using namespace std;
+//bubble sort
+def bubble_sort(arr):
+    n = len(arr)
 
-int main() {
-    int n;
+    for i in range(n - 1):
+        swapped = False
 
-    cout << "Enter the number of elements: ";
-    cin >> n;
+        for j in range(n - i - 1):
 
-    int arr[n];
+            if arr[j] > arr[j + 1]:
+                # Swap adjacent elements
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
 
-    cout << "Enter the elements: ";
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+        # Stop if no swaps occurred
+        if not swapped:
+            break
 
-    // Bubble Sort
-    for (int i = 0; i < n - 1; i++) {
-        bool swapped = false;
 
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // Swap elements
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = true;
-            }
-        }
+def print_array(arr):
+    for element in arr:
+        print(element, end=" ")
 
-        // If no swaps occurred, the array is already sorted
-        if (!swapped)
-            break;
-    }
+    print()
 
-    cout << "Sorted array: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
 
-    return 0;
-}
+# Main program
+n = int(input("Enter the number of elements: "))
+
+arr = []
+
+print("Enter", n, "elements:")
+
+for i in range(n):
+    arr.append(int(input()))
+
+bubble_sort(arr)
+
+print("Sorted array:", end=" ")
+print_array(arr)
+print("\nTime Complexity:")
+print("Best Case: O(n)")
+print("Average Case: O(n^2)")
+print("Worst Case: O(n^2)")
+print("Space Complexity: O(1)")
+
+print("Enrollment No: 92400118628")
